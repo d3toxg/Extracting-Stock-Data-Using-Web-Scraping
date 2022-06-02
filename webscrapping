@@ -38,3 +38,22 @@ for row in soup.find("tbody").find_all('tr'):
     
     # Finally we append the data of each row to the table
     netflix_data = netflix_data.append({"Date":date, "Open":Open, "High":high, "Low":low, "Close":close, "Adj Close":adj_close, "Volume":volume}, ignore_index=True)    
+
+We can now print out the dataframe
+
+netflix_data.head()
+
+We can also use the pandas read_html function using the url
+
+Or we can convert the BeautifulSoup object to a string
+
+read_html_pandas_data = pd.read_html(str(soup))
+
+
+Beacause there is only one table on the page, we just take the first table in the list returned
+
+netflix_dataframe = read_html_pandas_data[0]
+netflix_dataframe.head()
+
+Using Webscraping to Extract Stock Data Exercise¶
+
